@@ -16,8 +16,9 @@ class SmsDto
         private readonly string $recipient,
         private readonly string $text,
         private readonly string $originator,
-    ) {
-        $this->messageId = Str::uuid()->toString();
+    )
+    {
+        $this->messageId = rand(10, 99) . Str::random(6) . time();
     }
 
     public function flat(): self

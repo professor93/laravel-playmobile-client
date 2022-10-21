@@ -28,7 +28,7 @@ class LaravelPlaymobileClient
      */
     public function send(string $phone, string $text): bool
     {
-        $sms = (new SmsDto($phone, $this->originator, $text))->toArray();
+        $sms = (new SmsDto($phone, $text, $this->originator))->toArray();
 
         return $this->client->post('send', ['messages' => [$sms]])->successful();
     }

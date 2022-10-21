@@ -18,7 +18,7 @@ class LaravelPlaymobileClient
         $options = (is_string($proxy_url) && str_contains($proxy_url, '://') && strlen($proxy_url) > 12) ? ['proxy' => $proxy_url] : [];
 
         $this->client = Http::asJson()->baseUrl($config['base_url'])->withOptions($options)
-            ->withBasicAuth(config($config['username']), config($config['password']));
+            ->withBasicAuth($config['username'], $config['password']);
     }
 
     /**

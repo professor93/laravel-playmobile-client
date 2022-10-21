@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Uzbek\LaravelPlaymobileClient\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelPlaymobileClientCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-playmobile-client';
 
     public $description = 'My command';
 

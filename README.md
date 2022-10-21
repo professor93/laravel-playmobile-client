@@ -1,22 +1,9 @@
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
 # Sending sms via Playmobile
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/uzbek/laravel-playmobile-client.svg?style=flat-square)](https://packagist.org/packages/uzbek/laravel-playmobile-client)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/uzbek/laravel-playmobile-client/run-tests?label=tests)](https://github.com/uzbek/laravel-playmobile-client/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/uzbek/laravel-playmobile-client/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/uzbek/laravel-playmobile-client/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/professor93/laravel-playmobile-client/run-tests?label=tests)](https://github.com/professor93/laravel-playmobile-client/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/professor93/laravel-playmobile-client/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/professor93/laravel-playmobile-client/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/uzbek/laravel-playmobile-client.svg?style=flat-square)](https://packagist.org/packages/uzbek/laravel-playmobile-client)
-
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-playmobile-client.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-playmobile-client)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
 
 ## Installation
 
@@ -24,13 +11,6 @@ You can install the package via composer:
 
 ```bash
 composer require uzbek/laravel-playmobile-client
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-playmobile-client-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
@@ -43,20 +23,30 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'token_lifetime' => env('PLAYMOBILE_TOKEN_DURATION', 24 * 3600 * 30),
+    'base_url' => env('PLAYMOBILE_URL'),
+    'username' => env('PLAYMOBILE_USERNAME'),
+    'password' => env('PLAYMOBILE_PASSWORD'),
+    'originator' => env('PLAYMOBILE_ORIGINATOR'),
+    'proxy_url' => env('PLAYMOBILE_PROXY_URL'),
+    'proxy_proto' => env('PLAYMOBILE_PROXY_PROTO'),
+    'proxy_host' => env('PLAYMOBILE_PROXY_HOST'),
+    'proxy_port' => env('PLAYMOBILE_PROXY_PORT'),
 ];
 ```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-playmobile-client-views"
-```
-
 ## Usage
-
+With object
 ```php
 $laravelPlaymobileClient = new Uzbek\LaravelPlaymobileClient();
-echo $laravelPlaymobileClient->echoPhrase('Hello, Uzbek!');
+
+$laravelPlaymobileClient->send('998901234567', 'Sms from PHP/Laravel application');
+```
+or with Facade
+```php
+use Uzbek\LaravelPlaymobileClient\Facades\Sms;
+
+Sms::send('998901234567', 'Sms from PHP/Laravel application');
 ```
 
 ## Testing

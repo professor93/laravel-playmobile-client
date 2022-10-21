@@ -39,7 +39,7 @@ class SmsDto
             'message-id' => $this->messageId,
             'sms' => [
                 'originator' => $this->originator,
-                'content' => ['text' => $this->long ? $this->text : Str::limit($this->text, 160)],
+                'content' => ['text' => $this->long ? $this->text : Str::limit($this->text, 160, '')],
             ],
         ];
     }

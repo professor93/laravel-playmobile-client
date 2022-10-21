@@ -4,7 +4,6 @@ namespace Uzbek\LaravelPlaymobileClient;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Uzbek\LaravelPlaymobileClient\Commands\LaravelPlaymobileClientCommand;
 
 class LaravelPlaymobileClientServiceProvider extends PackageServiceProvider
 {

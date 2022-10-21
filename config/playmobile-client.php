@@ -4,8 +4,8 @@
 return [
     'token_lifetime' => env('PLAYMOBILE_TOKEN_DURATION', 24 * 3600 * 30),
 
-    'api_url' => env('PLAYMOBILE_URL'),
-    'email' => env('PLAYMOBILE_USERNAME'),
+    'base_url' => env('PLAYMOBILE_URL'),
+    'username' => env('PLAYMOBILE_USERNAME'),
     'password' => env('PLAYMOBILE_PASSWORD'),
     'originator' => env('PLAYMOBILE_ORIGINATOR'),
 

@@ -4,7 +4,6 @@ namespace Uzbek\LaravelPlaymobileClient;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Uzbek\LaravelPlaymobileClient\Commands\LaravelPlaymobileClientCommand;
 
 class LaravelPlaymobileClientServiceProvider extends PackageServiceProvider
 {
@@ -12,11 +11,10 @@ class LaravelPlaymobileClientServiceProvider extends PackageServiceProvider
     {
         /*
          * This class is a Package Service Provider
-         *
-         * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package
-            ->name('laravel-playmobile-client')
-            ->hasConfigFile();
+        $package->name('laravel-playmobile-client')->hasConfigFile();
+        $this->app->singleton(LaravelPlaymobileClient::class, function () {
+            return new LaravelPlaymobileClient(config('playmobile-client'));
+        });
     }
 }

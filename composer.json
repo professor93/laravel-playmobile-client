@@ -63,7 +63,7 @@
                 "Uzbek\\LaravelPlaymobileClient\\LaravelPlaymobileClientServiceProvider"
             ],
             "aliases": {
-                "LaravelPlaymobileClient": "Uzbek\\LaravelPlaymobileClient\\Facades\\LaravelPlaymobileClient"
+                "LaravelPlaymobileClient": "Sms"
             }
         }
     },

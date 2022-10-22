@@ -46,7 +46,7 @@ class LaravelPlaymobileClient
         $sms = (new SmsDto($phone, $text, $this->originator))->toArray();
 
         return $this->client->post('send', ['messages' => [$sms]])
-            ->throw(fn ($r, $e) => self::catchHttpRequestError($r, $e))->successful();
+            ->throw(fn ($r, $e) => self::catchHttpRequestError($r, $e))->json();
     }
 
     public static function catchHttpRequestError($res, $e)

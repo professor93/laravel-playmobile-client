@@ -10,5 +10,4 @@ namespace Uzbek\LaravelPlaymobileClient\Exceptions;
 
 class EmptyRecipient extends \Exception
 {
-
 }

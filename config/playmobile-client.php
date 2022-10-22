@@ -7,7 +7,7 @@ return [
     'base_url' => env('PLAYMOBILE_URL'),
     'username' => env('PLAYMOBILE_USERNAME'),
     'password' => env('PLAYMOBILE_PASSWORD'),
-    'originator' => env('PLAYMOBILE_ORIGINATOR'),
+    'originator' => env('PLAYMOBILE_ORIGINATOR', 3900),
 
     'proxy_url' => env('PLAYMOBILE_PROXY_URL'),
     'proxy_proto' => env('PLAYMOBILE_PROXY_PROTO'),

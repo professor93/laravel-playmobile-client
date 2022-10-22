@@ -16,7 +16,7 @@ composer require uzbek/laravel-playmobile-client
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-playmobile-client-config"
+php artisan vendor:publish --tag="playmobile-client-config"
 ```
 
 This is the contents of the published config file:

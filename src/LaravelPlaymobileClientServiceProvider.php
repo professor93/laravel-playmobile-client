@@ -12,7 +12,7 @@ class LaravelPlaymobileClientServiceProvider extends PackageServiceProvider
         /*
          * This class is a Package Service Provider
          */
-        $package->name('laravel-playmobile-client')->hasConfigFile();
+        $package->name('playmobile-client')->hasConfigFile();
         $this->app->singleton(LaravelPlaymobileClient::class, function () {
             return new LaravelPlaymobileClient(config('playmobile-client'));
         });

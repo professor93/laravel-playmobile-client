@@ -40,13 +40,14 @@ With object
 ```php
 $laravelPlaymobileClient = new Uzbek\LaravelPlaymobileClient();
 
-$laravelPlaymobileClient->send('998901234567', 'Sms from PHP/Laravel application');
+$laravelPlaymobileClient->send('998901234567', 'Playmobile from PHP/Laravel application');
 ```
 or with Facade
-```php
-use Uzbek\LaravelPlaymobileClient\Facades\Sms;
 
-Sms::send('998901234567', 'Sms from PHP/Laravel application');
+```php
+use Uzbek\LaravelPlaymobileClient\Facades\Playmobile;
+
+Playmobile::send('998901234567', 'Playmobile from PHP/Laravel application');
 ```
 
 ## Testing

@@ -8,7 +8,7 @@ use Uzbek\LaravelPlaymobileClient\LaravelPlaymobileClient;
 /**
  * @see \Uzbek\LaravelPlaymobileClient\LaravelPlaymobileClient
  */
-class Sms extends Facade
+class Playmobile extends Facade
 {
     protected static function getFacadeAccessor(): string
     {

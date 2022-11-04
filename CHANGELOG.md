@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-playmobile-client` will be documented in this file.
 
+## 0.0.4 - 2022-10-22
+
+Rename Facade name
+
 ## 0.0.3 - 2022-10-21
 
 .

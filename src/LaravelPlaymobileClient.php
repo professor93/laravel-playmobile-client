@@ -29,24 +29,25 @@ class LaravelPlaymobileClient
     public function __construct($config)
     {
         $this->originator = $config['originator'];
-        $proxy_url = $config['proxy_url'] ?? (($config['proxy_proto'] ?? '').'://'.($config['proxy_host'] ?? '').':'.($config['proxy_port'] ?? '')) ?? '';
+        $proxy_url = $config['proxy_url'] ?? (($config['proxy_proto'] ?? '') . '://' . ($config['proxy_host'] ?? '') . ':' . ($config['proxy_port'] ?? '')) ?? '';
         $options = (is_string($proxy_url) && str_contains($proxy_url, '://') && strlen($proxy_url) > 12) ? ['proxy' => $proxy_url] : [];
 
-        $this->client = Http::asJson()->baseUrl($config['base_url'])->withOptions($options)
+        $this->client = Http::asJson()->baseUrl($config['base_url'])
+            ->withOptions($options)
             ->withBasicAuth($config['username'], $config['password']);
     }
 
     /**
-     * @param  string  $phone
-     * @param  string  $text
+     * @param string $phone
+     * @param string $text
      * @return bool
      */
-    public function send(string $phone, string $text): bool
+    public function send(string $phone, string $text)
     {
         $sms = (new SmsDto($phone, $text, $this->originator))->toArray();
 
         return $this->client->post('send', ['messages' => [$sms]])
-            ->throw(fn ($r, $e) => self::catchHttpRequestError($r, $e))->json();
+            ->throw(fn($r, $e) => self::catchHttpRequestError($r, $e))->ok();
     }
 
     public static function catchHttpRequestError($res, $e)
